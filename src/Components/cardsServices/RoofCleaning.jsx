@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 const RoofCleaning = () => {
   return (
     <main className="bg-white text-slate-800 px-4 py-12">
-      {/* <section className="bg-yellow-500 text-white text-center py-10 mb-10">
+      {/* Hero Section (Optional: You can uncomment and customize later) */}
+      {/* 
+      <section className="bg-yellow-500 text-white text-center py-10 mb-10">
         <h1 className="text-4xl font-bold">Roof Cleaning Service</h1>
         <p className="mt-4 max-w-3xl mx-auto">
           Professional Roof Cleaning and Moss Removal Solutions Across the UK
@@ -16,60 +18,60 @@ const RoofCleaning = () => {
             Non Pressure Cleaning
           </Link>
         </div>
-      </section> */}
+      </section>
+      */}
 
-      <section className="max-w-5xl mx-auto space-y-8">
+      <section className="max-w-5xl mx-auto space-y-12">
+        {/* Intro */}
         <div>
-          <h2 className="text-2xl font-bold">Professional Roof Cleaning Service Provided Throughout the UK</h2>
-          <p className="mt-2 text-justify">
-            If your roof is covered in moss, dirt, or grime, our nationwide network of registered roof cleaning contractors can help.
-            They offer free quotations across the UK with expert services to safely and affordably clean your roof.
+          <h2 className="text-3xl font-bold text-yellow-600 mb-2">Professional Roof Cleaning Services Across the UK</h2>
+          <p className="text-lg text-slate-700 leading-relaxed text-justify">
+            Is your roof affected by moss, algae, or grime? Our trusted network of roof cleaning experts delivers safe and
+            affordable roof cleaning throughout the UK. Enjoy peace of mind with free surveys and expert recommendations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <img src="/images/serviceCards/8.jpg" alt="Roof Cleaning" className="rounded shadow" />
-          {/* <img src="/c/images/2/213547d3jordan-6-jpg.jpg" alt="Roof Cleaning" className="rounded shadow" /> */}
+        {/* Image Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <img src="/images/serviceCards/8.jpg" alt="Roof Cleaning" className="rounded-lg shadow-md w-full h-64 object-cover" />
+          <div className="flex flex-col justify-center">
+            <h3 className="text-2xl font-semibold mb-2">Fast, Safe, and Affordable</h3>
+            <p className="text-slate-700 text-justify">
+              Roof moss not only looks bad but can block gutters, weaken tiles, and lead to damp problems. Our cleaning removes moss
+              and buildup using professional tools without damaging your roof.
+            </p>
+          </div>
         </div>
 
+        {/* Biowash Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="flex flex-col justify-center order-2 sm:order-1">
+            <h3 className="text-2xl font-semibold mb-2">Biowash™ Non-Pressure Roof Cleaning</h3>
+            <p className="text-slate-700 text-justify">
+              Our advanced BioWash™ technology allows us to clean your roof from the ground—no ladders, no pressure washers.
+              It’s a gentle, chemical-based treatment that kills moss and keeps it from coming back.
+            </p>
+          </div>
+          {/* Placeholder for Biowash Image - Add when ready */}
+          <div className="order-1 sm:order-2">
+            <img src="/images/serviceCards/2.jpg" alt="Biowash Roof Cleaning" className="rounded-lg shadow-md w-full h-64 object-cover" />
+          </div>
+        </div>
+
+        {/* Lifespan Benefits */}
         <div>
-          <h2 className="text-2xl font-bold">Roof Cleaning is Fast, Safe, and Affordable</h2>
-          <p className="text-justify">
-            Moss can damage roof structure, block gutters, and accelerate tile degradation. Our process removes moss safely using
-            top-grade cleaning methods without risk.
+          <h3 className="text-2xl font-semibold mb-2">Extend Roof Life & Boost Property Value</h3>
+          <p className="text-slate-700 text-justify">
+            A clean roof doesn’t just look great—it prevents structural decay, improves insulation, and enhances your home’s
+            curb appeal. Our service adds value and longevity to your property, backed by our quality assurance.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* <img src="/c/images/2/a3232web9-png.jpg" alt="Before Cleaning" className="rounded shadow" />
-          <img src="/c/images/2/b70046web10-png.jpg" alt="After Cleaning" className="rounded shadow" /> */}
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold">Biowash™ Non-Pressure Roof Cleaning</h2>
-          <p className="text-justify">
-            BioWash™ technology allows safe, ground-level moss removal without stepping on your roof. It's effective, fast,
-            and widely available in the UK.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* <img src="/c/images/2/e540bdbiowash-b-jpg.jpg" alt="Biowash" className="rounded shadow" />
-          <img src="/c/images/2/2746184biowash-a-jpg.jpg" alt="Biowash Cleaning" className="rounded shadow" /> */}
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-bold">Improve Roof Lifespan and Property Value</h2>
-          <p className="text-justify">
-            Clean roofs extend lifespan, prevent structural damage, and boost curb appeal. Our solutions are backed by long-term
-            protection guarantees.
-          </p>
-        </div>
-
-        <div className="text-center mt-8">
+        {/* CTA */}
+        <div className="text-center mt-10">
           <Link
             to="/quotation"
-            className="inline-block bg-yellow-500 text-white font-bold px-6 py-3 rounded hover:bg-yellow-600"
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-6 py-3 rounded shadow-md transition"
           >
             Request a Free Quote
           </Link>

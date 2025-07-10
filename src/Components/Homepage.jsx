@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaCheckCircle } from "react-icons/fa";
 
 const Homepage = () => (
   <main>
@@ -13,57 +14,84 @@ const Homepage = () => (
   />
 
   {/* Foreground Content */}
-  <div className="relative z-10 flex items-center justify-center h-full px-4 text-center">
-    <div className="bg-gray-900 text-white p-6 max-w-sm rounded shadow-lg">
-      <h2 className="text-2xl font-bold mb-2">ROOF CLEANING SERVICES</h2>
-      <p className="mb-4">Remove moss from your roof and transform the look of your home</p>
-      <Link to="/quotation">
-        <button className="bg-yellow-400 text-black font-bold px-4 py-2 rounded">
-          FIND OUT MORE
-        </button>
-      </Link>
+<div className="relative z-10 flex items-center justify-start h-full px-6 md:px-16 text-left">
+  <div className="bg-gray-900 text-white p-6 md:p-8 max-w-sm rounded shadow-lg">
+    <h2 className="text-2xl font-bold mb-2">ROOF CLEANING SERVICES</h2>
+    <p className="mb-4">Remove moss from your roof and transform the look of your home</p>
+    <Link to="/quotation">
+      <button className="bg-yellow-400 text-black font-bold px-4 py-2 rounded hover:bg-yellow-500 transition">
+        FIND OUT MORE
+      </button>
+    </Link>
+  </div>
+</div>
+
+</section>
+
+
+    {/* Info Section */}
+    <section className="py-12 bg-slate-50">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="flex flex-wrap justify-center gap-8">
+      {[{
+        img: "/images/c1.jpg",
+        title: "Our Services",
+        text: "Explore our complete range of roof cleaning, coating, and moss removal solutions.",
+        btn: "Services",
+        link: "/services"
+      }, {
+        img: "/images/c3.jpg",
+        title: "Professional Roof Cleaning",
+        text: "Trusted experts using high-quality products to clean and preserve your roof.",
+        btn: "Find out more",
+        link: "/commercialroofcleaning"
+      }].map((card, i) => (
+        <div
+          key={i}
+          className="bg-slate-800 text-white rounded-2xl shadow-xl transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl w-full max-w-sm"
+        >
+          <img
+            src={card.img}
+            alt={card.title}
+            className="w-full h-56 object-cover rounded-t-2xl"
+          />
+          <div className="p-6 text-center">
+            <h3 className="text-xl font-bold mb-3">{card.title}</h3>
+            <p className="mb-5 text-sm text-slate-300">{card.text}</p>
+            <Link to={card.link}>
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-md transition duration-200">
+                {card.btn}
+              </button>
+            </Link>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 
-    {/* Info Section */}
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-          {/* Card Template */}
-          {[{
-            img: "/images/c1.jpg", title: "Our Services", text: "Explore our complete range of roof cleaning, coating, and moss removal solutions.", btn: "Services", link: "/services"
-          }, {
-            img: "/images/c2.jpg", title: "Our 5 Step Process", text: "Learn about our effective and proven 5-step process for roof restoration and protection.", btn: "Find out more", link: "/services"
-          }, {
-            img: "/images/c3.jpg", title: "Professional Roof Cleaning", text: "Trusted experts using high-quality products to clean and preserve your roof.", btn: "Find out more", link: "/commercialroofcleaning"
-          }].map((card, i) => (
-            <div key={i} className="bg-slate-800 text-white rounded-2xl shadow-lg p-6 text-center">
-              <img src={card.img} alt={card.title} className="w-full h-60 object-cover mb-6 rounded-lg" />
-              <h3 className="text-xl font-bold mb-3">{card.title}</h3>
-              <p className="mb-5">{card.text}</p>
-              <Link to={card.link}>
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-md">
-                  {card.btn}
-                </button>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
     {/* Badges */}
-    <section className="bg-slate-100 py-6">
-      <div className="max-w-7xl mx-auto px-4">
-        <ul className="flex flex-wrap justify-center gap-4 text-sm md:text-base font-semibold text-slate-800 text-center">
-          {["Free Survey & Quotation", "10 Year Product Guarantee", "Nationwide Service", "Professional and Affordable"].map((item, i) => (
-            <li key={i}>✅ {item}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
+<section className="bg-slate-100 py-8">
+  <div className="max-w-7xl mx-auto px-4">
+    <ul className="flex flex-wrap justify-center gap-4 text-sm md:text-base font-semibold text-slate-800 text-center">
+      {[
+        "Free Survey & Quotation",
+        "10 Year Product Guarantee",
+        "Nationwide Service",
+        "Professional and Affordable",
+      ].map((item, i) => (
+        <li
+          key={i}
+          className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow hover:shadow-lg transition"
+        >
+          <FaCheckCircle className="text-lime-500 text-lg" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
 
     {/* Services Grid */}
     <section className="bg-gray-50 py-16">

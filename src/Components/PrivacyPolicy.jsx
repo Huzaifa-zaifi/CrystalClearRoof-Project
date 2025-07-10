@@ -3,12 +3,15 @@ const PrivacyPolicy = () => {
       <main className="bg-white text-slate-900 min-h-screen">
   
         {/* Hero Section */}
-        <section className="relative h-60 bg-[url('/images/privacy-hero.jpg')] bg-cover bg-center flex items-center justify-center">
-          <div className="bg-black bg-opacity-60 absolute inset-0 z-0" />
-          <h1 className="relative z-10 text-3xl md:text-4xl font-bold text-yellow-400">
-            Privacy Policy
-          </h1>
-        </section>
+        <section
+  className="relative h-64 md:h-80 bg-cover bg-center flex items-center justify-center"
+  style={{ backgroundImage: "url('/images/pp.jpg')",backgroundPosition: "center 40%", }}
+>
+  <div className="absolute inset-0 bg-black/60 z-0" />
+  <h1 className="relative z-10 text-3xl md:text-4xl font-bold text-yellow-400">
+   Privacy & Policy
+  </h1>
+</section>
   
         <div className="max-w-7xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-10">
           

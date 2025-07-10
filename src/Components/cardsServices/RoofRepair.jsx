@@ -1,42 +1,57 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RoofRepair = () => {
   return (
     <main className="bg-white text-slate-900 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-60 bg-[url('/images/serviceCards/7.jpg')] bg-cover bg-center flex items-center justify-center">
-        <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
-        <h1 className="relative z-10 text-3xl md:text-4xl font-bold text-yellow-400">
-          Roof Repair Services
-        </h1>
-      </section>
+     
 
       {/* Main Content */}
-      <section className="max-w-5xl mx-auto py-12 px-6 space-y-8">
-        <h2 className="text-xl font-semibold">Roof Repairs as Part of Cleaning Service</h2>
-        <p>
-          We provide expert roof repairs as part of our comprehensive roof cleaning and restoration service. After the roof is cleaned, we inspect it thoroughly. Any damaged or loose tiles are replaced, and mortar issues on ridges, hips, valleys, and eaves are addressed through re-pointing.
-        </p>
+      <section className="max-w-5xl mx-auto py-12 px-6 space-y-8 text-lg leading-relaxed">
+        <div>
+          <h2 className="text-2xl font-semibold text-yellow-800 mb-2">
+            Complete Roof Repair as Part of Roof Care
+          </h2>
+          <p>
+            At <strong>CrystalClearRoofs</strong>, we don’t just clean your roof—we restore and protect it. Our professional roof repair service is often paired with roof cleaning to ensure your tiles and ridges are in top condition after the moss, debris, or algae have been removed.
+          </p>
+        </div>
 
         <img
-          src="/images/serviceCards/1.jpg"
-          alt="Roof Repairs"
-          className="w-full max-w-3xl mx-auto rounded-lg shadow"
-        />
+        src="/images/serviceCards/1.jpg"
+        alt="Roof Repairs"
+        className="w-full h-[350px] object-cover rounded mb-6 shadow"
+      />
 
-        <h2 className="text-xl font-semibold">Our Roof Repair Services Include:</h2>
-        <ul className="list-disc pl-6 space-y-1">
-          <li>Replacing or re-bedding ridge tiles where mortar has degraded</li>
-          <li>Replacing cracked or broken tiles</li>
-          <li>Re-pointing work on ridges, valleys, and other exposed areas</li>
-        </ul>
+        <div>
+          <h2 className="text-2xl font-semibold text-yellow-800 mt-10 mb-2">
+            Our Roof Repair Services Include:
+          </h2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Re-bedding or replacing ridge tiles with cracked or loose mortar</li>
+            <li>Replacing broken, slipped, or cracked roof tiles</li>
+            <li>Re-pointing work on valleys, hips, and eaves</li>
+            <li>Minor structural touch-ups to prevent water ingress</li>
+          </ul>
+        </div>
 
         <p>
-          Our CrystalClearRoof Registered Contractors are trained in both roof cleaning and essential repair services. They use only high-quality products to ensure a lasting finish and structural integrity of your roof.
+          Every repair is carried out by our CrystalClearRoofs Registered Contractors using high-quality materials to ensure durability and longevity. We focus on both function and appearance—so your roof looks as good as it performs.
         </p>
 
-      
-        
+        <p>
+          Whether you're booking a one-time cleaning or a full roof restoration, our repair service ensures no damage is left untreated—giving you a complete solution in one visit.
+        </p>
+
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <Link
+            to="/quotation"
+            className="inline-block bg-yellow-500 text-white font-bold px-6 py-3 rounded hover:bg-yellow-600 transition"
+          >
+            Request a Free Quote
+          </Link>
+        </div>
       </section>
     </main>
   );

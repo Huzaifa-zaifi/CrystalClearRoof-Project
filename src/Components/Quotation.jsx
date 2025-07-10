@@ -1,94 +1,170 @@
+import { useState } from "react";
+
 const Quotation = () => {
-    return (
-      <main className="bg-white text-slate-900 min-h-screen">
-        {/* Hero Section */}
-        <section className="relative h-60 bg-[url('/images/services-hero.jpg')] bg-cover bg-center flex items-center justify-center">
-          <div className="bg-black bg-opacity-60 absolute inset-0 z-0" />
-          <h1 className="relative z-10 text-3xl md:text-4xl font-bold text-yellow-400">Get a Free Quotation</h1>
-        </section>
-  
-        {/* Form Section */}
-        <section className="max-w-4xl mx-auto py-12 px-6">
-          <h2 className="text-2xl font-semibold text-yellow-800 mb-6">Request Your Free Quotation</h2>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-xl shadow-lg">
-  
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="tel"
-              placeholder="Telephone"
-              className="border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="Town / City"
-              className="border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-  
-            {/* Full Width Address */}
-            <input
-              type="text"
-              placeholder="Address"
-              className="col-span-full border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-  
-            <input
-              type="text"
-              placeholder="Country"
-              className="border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="Post Code"
-              className="border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-  
-            {/* Dropdown */}
-            <select
-              className="col-span-full border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              defaultValue=""
-            >
-              <option disabled value="">
-                Select a Service
-              </option>
-              <option>Roof Cleaning</option>
-              <option>Roof Coating</option>
-              <option>Moss Removal</option>
-              <option>Asbestos Roof Coating</option>
-              <option>Roof Moss Prevention</option>
-              <option>Roof Repair</option>
-              <option>Roof Tiling</option>
-              <option>Non-Pressure Cleaning</option>
-              <option>Commercial Roof Services</option>
-            </select>
-  
-            {/* Message */}
-            <textarea
-              rows="4"
-              placeholder="Message"
-              className="col-span-full border border-gray-300 p-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-  
-            {/* Submit */}
-            <button
-              type="submit"
-              className="col-span-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 rounded transition duration-300"
-            >
-              Submit Request
-            </button>
-          </form>
-        </section>
-      </main>
-    );
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    telephone: "",
+    postcode: "",
+    address: "",
+    service_type: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(null); // 'success' | 'error'
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
-  export default Quotation;
-  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus(null);
+
+    const submission = {
+      ...formData,
+      created_at: new Date().toISOString(), // Optional but useful
+    };
+
+    try {
+      const res = await fetch(
+        "https://api.sheetbest.com/sheets/8138cd99-9d55-40ea-81ca-d02a41d1bb82",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submission),
+        }
+      );
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          telephone: "",
+          postcode: "",
+          address: "",
+          service_type: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("Submission Error:", err);
+      setStatus("error");
+    }
+  };
+
+  return (
+    <>
+    {/* Hero Section */}
+    <section
+  className="relative h-64 md:h-80 bg-cover bg-center flex items-center justify-center"
+  style={{ backgroundImage: "url('/images/c2.jpg')",backgroundPosition: "center 40%", }}
+>
+  <div className="absolute inset-0 bg-black/60 z-0" />
+  <h1 className="relative z-10 text-3xl md:text-4xl font-bold text-yellow-400">
+    Request a Free Quotation
+  </h1>
+</section>
+
+
+    <main className="min-h-screen bg-white text-slate-900 py-12 px-4 max-w-3xl mx-auto">
+      {/* <h1 className="text-3xl font-bold text-yellow-600 mb-6">Request a Quotation</h1> */}
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <input
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Name*"
+          required
+          className="w-full px-4 py-2 border rounded"
+        />
+        <input
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+          className="w-full px-4 py-2 border rounded"
+        />
+        <input
+          name="telephone"
+          value={formData.telephone}
+          onChange={handleChange}
+          placeholder="Phone*"
+          required
+          className="w-full px-4 py-2 border rounded"
+        />
+        <input
+          name="postcode"
+          value={formData.postcode}
+          onChange={handleChange}
+          placeholder="Postcode"
+          className="w-full px-4 py-2 border rounded"
+        />
+        <input
+          name="address"
+          value={formData.address}
+          onChange={handleChange}
+          placeholder="Address"
+          className="w-full px-4 py-2 border rounded"
+        />
+        <select
+          name="service_type"
+          value={formData.service_type}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border rounded"
+          required
+        >
+          <option value="">Select Service Type</option>
+          <option value="Standard Gutter Cleaning">Standard Gutter Cleaning</option>
+          <option value="3 & 4 Storey Gutter Cleaning">3 & 4 Storey Gutter Cleaning</option>
+          <option value="Full Wash Service (Gutters, Soffits & Fascias)">Full Wash Service (Gutters, Soffits & Fascias)</option>
+          <option value="Roof Cleaning">Roof Cleaning</option>
+          <option value="Roof Coating">Roof Coating</option>
+          <option value="Moss Removal">Moss Removal</option>
+          <option value="Asbetos Roof Coating">Asbetos Roof Coating</option>
+          <option value="Roof Moss Prevention">Roof Moss Prevention</option>
+          <option value="Roof Repair">Roof Repair</option>
+          <option value="Roof Tiling">Roof Tiling</option>
+          <option value="Non Pressure Cleaning">Non Pressure Cleaning</option>
+          <option value="Commercial Roof Services">Commercial Roof Services</option>
+          <option value="Other">Others ( if any please specify in message box )</option>
+        </select>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Message"
+          rows="5"
+          className="w-full px-4 py-2 border rounded"
+        />
+
+        <button
+          type="submit"
+          className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded"
+        >
+          Submit
+        </button>
+
+        {status === "success" && (
+          <p className="text-green-600 font-semibold mt-4">
+            ✅ Form submitted successfully!
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-red-600 font-semibold mt-4">
+            ❌ Submission failed. Please try again.
+          </p>
+        )}
+      </form>
+    </main>
+    </>
+  );
+};
+
+export default Quotation;

@@ -1,74 +1,67 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MossRemoval = () => {
   return (
-    <main className="bg-white text-slate-900 min-h-screen">
-      {/* Hero */}
-      <section className="relative h-60 bg-[url('/images/c3.jpg')] bg-cover bg-center flex items-center justify-center">
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
-        <h1 className="relative z-10 text-3xl md:text-4xl font-bold text-yellow-400">
-          Roof Moss Removal
-        </h1>
+    <main className="bg-white text-slate-900 min-h-screen py-12 px-6">
+      {/* Heading */}
+      <section className="max-w-5xl mx-auto text-center mb-12">
+        <h1 className="text-4xl font-bold text-yellow-800 mb-4">Roof Moss Removal</h1>
+        <p className="text-slate-700 max-w-3xl mx-auto text-lg">
+          Safely remove moss from your roof and prevent long-term structural damage using our trusted roof moss removal service across the UK.
+        </p>
       </section>
 
       {/* Content */}
-      <section className="max-w-5xl mx-auto py-12 px-6 space-y-8">
-        <div className="space-y-5">
-          <p>
-            If your roof is covered in moss, our roof moss removal service is the solution. The UK's damp climate makes roofs ideal for moss, algae, and lichen—leading to blocked gutters, added roof weight, tile damage, and costly repairs.
-          </p>
+      <section className="max-w-5xl mx-auto space-y-8 text-slate-800 text-lg leading-relaxed">
+        <p>
+          The UK's damp climate encourages moss, algae, and lichen growth on roofs. These invaders can cause blocked gutters, tile damage, and added roof weight—leading to expensive repairs if left untreated.
+        </p>
 
-          <p>
-            We begin with a thorough mechanical clean using specialist tools. After that, we apply Moss Clear Pro biocide—a high-grade treatment that prevents regrowth for up to 3–4 years. It’s safe, green, and effective year-round.
-          </p>
+        <p>
+          Our removal process starts with a deep mechanical clean using professional-grade tools. Then, we apply <strong>Moss Clear Pro</strong>—a high-performance biocide that prevents regrowth for 3 to 4 years. It's eco-friendly, safe, and highly effective.
+        </p>
 
-          <h2 className="text-xl font-semibold mt-6">
-            Why Choose Our Contractors?
-          </h2>
-          <p>
-            Smartseal Registered Contractors have a proven track record in roof moss removal. You’ll receive up to 3 free no-obligation quotes from trusted companies local to your area.
-          </p>
+        <h2 className="text-2xl font-semibold mt-6 text-yellow-600">Why Choose Us?</h2>
+        <p>
+          Our Smartseal Registered Contractors have a proven track record in professional roof care. We connect you with up to 3 trusted local companies offering free, no-obligation quotes.
+        </p>
 
-          <h2 className="text-xl font-semibold mt-6">How We Work</h2>
-          <p>
-            Our moss removal process includes:
-          </p>
-          <ul className="list-disc pl-6 space-y-1">
-            <li>Full roof clean using professional-grade equipment</li>
-            <li>Application of biocide with specialist spraying tools</li>
-            <li>Protection of gutters and downpipes</li>
-            <li>Use of tarpaulins and sheets to cover surrounding areas</li>
-            <li>Full clean-up and waste disposal afterward</li>
-          </ul>
+        <h2 className="text-2xl font-semibold mt-6 text-yellow-600">Our Process Includes:</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Full mechanical roof cleaning using specialist tools</li>
+          <li>Application of biocide with precision spraying equipment</li>
+          <li>Gutter and downpipe protection during treatment</li>
+          <li>Use of tarpaulins to safeguard surrounding areas</li>
+          <li>Full clean-up and responsible waste disposal</li>
+        </ul>
 
-          <h2 className="text-xl font-semibold mt-6">
-            Benefits of Moss Removal
-          </h2>
-          <ul className="list-disc pl-6 space-y-1">
-            <li>Enhances property appearance and kerb appeal</li>
-            <li>Protects the structural integrity of your roof</li>
-            <li>Can increase home value and saleability</li>
-            <li>Reduces health hazards like bacteria and mold</li>
-          </ul>
+        <h2 className="text-2xl font-semibold mt-6 text-yellow-600">Key Benefits of Moss Removal</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Improves the appearance of your roof and home</li>
+          <li>Helps prevent structural damage to roof tiles</li>
+          <li>Increases your property value and sale appeal</li>
+          <li>Reduces health risks from mold and bacteria buildup</li>
+        </ul>
 
-          <h2 className="text-xl font-semibold mt-6">
-            Can I Do It Myself?
-          </h2>
-          <p>
-            Roof moss removal may seem simple but is best left to professionals. Working at height and using powerful tools requires experience and safety knowledge. DIY attempts often do more harm than good.
-          </p>
+        <h2 className="text-2xl font-semibold mt-6 text-yellow-600">Should I Do It Myself?</h2>
+        <p>
+          DIY moss removal is not recommended. The process involves working at height, handling strong chemicals, and using specialized equipment. Incorrect methods may damage your roof or compromise safety.
+        </p>
 
-          <h2 className="text-xl font-semibold mt-6">
-            How Long Will It Take?
-          </h2>
-          <p>
-            Duration depends on roof size and moss severity. A bungalow with light grime may take a few hours, while a large, moss-covered home may take longer. Our contractors ensure quality work with minimal disruption.
-          </p>
+        <h2 className="text-2xl font-semibold mt-6 text-yellow-600">How Long Does It Take?</h2>
+        <p>
+          Timelines depend on roof size and moss severity. A smaller property may take 2–3 hours, while larger or heavily affected roofs may take a day. We prioritize quality and minimal disruption.
+        </p>
 
-          {/* <h2 className="text-xl font-semibold mt-6">
-            Book a FREE Quote Today
-          </h2> */}
-          
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <Link
+            to="/quotation"
+            className="inline-block bg-yellow-500 text-white font-bold px-6 py-3 rounded hover:bg-yellow-600 transition"
+          >
+            Request a Free Quote
+          </Link>
         </div>
       </section>
     </main>

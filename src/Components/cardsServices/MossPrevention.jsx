@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const MossPrevention = () => {
   return (
     <main className="bg-white text-slate-900 min-h-screen">
@@ -66,6 +66,14 @@ const MossPrevention = () => {
             </a>
             .
           </p>
+          <div className="text-center mt-8">
+                    <Link
+                      to="/quotation"
+                      className="inline-block bg-yellow-500 text-white font-bold px-6 py-3 rounded hover:bg-yellow-600"
+                    >
+                      Request a Free Quote
+                    </Link>
+                  </div>
         </div>
       </section>
     </main>

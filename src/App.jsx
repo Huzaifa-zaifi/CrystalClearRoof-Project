@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import TopBar from './Components/Topbar';
+
 import Header from './Components/Header';
-import Navbar from './Components/Navbar';
+
 import Footer from './Components/Footer';
 import Homepage from './Components/Homepage';
 import MyServices from './Components/MyServices';
@@ -20,13 +20,16 @@ import AsbestosRoofCoating from "./Components/cardsServices/AsbestosRoofCoating"
 import RoofRepair from "./Components/cardsServices/RoofRepair";
 import RoofTiling from "./Components/cardsServices/RoofTiling";
 import NonPressureRoofCleaning from "./Components/cardsServices/NonPressureRoofCleaning";
+import StandardGutterCleaning from "./Components/cardsServices/StandardGutterCleaning";
+import TwoThreeStoreyGutterCleaning from "./Components/cardsServices/TwoThreeStoreyGutterCleaning";
+import FullWashService from "./Components/cardsServices/FullWashService";
 
 function App() {
   return (
     <div className="font-sans">
-      <TopBar />
+      {/* <TopBar /> */}
       <Header />
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Route-based page rendering */}
       <Routes>
@@ -48,6 +51,9 @@ function App() {
         <Route path="/rooftiling" element={<RoofTiling />} />
         <Route path="/non-pressure-cleaning" element={<NonPressureRoofCleaning />} />
         <Route path="/commercial-roof-services" element={<CommercialRoofCleaning />} />
+        <Route path="/standardguttercleaning" element={<StandardGutterCleaning />} />
+        <Route path="/multiguttercleaning" element={<TwoThreeStoreyGutterCleaning />} />
+        <Route path="/fullwashguttercleaning" element={<FullWashService />} />
 
       </Routes>
 
